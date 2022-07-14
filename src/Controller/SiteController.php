@@ -14,6 +14,18 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SiteController extends AbstractController
 {
+     /**
+     * @Route("/dashboard", name="app_dashboard")
+     */
+    public function dashboard(Security $security): Response
+    {
+        $cgo = $security->getUser();
+
+        return $this->render('site/dashboard.html.twig', [
+            'controller_name' => 'SiteController',
+        ]);
+    }
+
     /**
      * @Route("/calcul-distance/", name="app_site")
      */
