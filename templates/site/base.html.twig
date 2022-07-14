@@ -15,8 +15,8 @@
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
-    <body class="pt-4 p-1 pt-md-4 p-md-3 pt-lg-4 p-lg-5 vh-100">
-        <section class="card d-flex flex-column justify-content-beetween h-100">
+    <body class="p-5">
+        <section class="card p-0 d-flex flex-column">
             <div class="col-12">
                 <a class="col-6" href="{{ path('app_dashboard') }}">
                     <img src="{{ asset('images/design/logo.png') }}" class="position-absolute logoTop img-thumbnail border border-primary" alt="Logo Refaitesvosjeux.fr">
@@ -25,7 +25,7 @@
 
             {% include "site/nav.html.twig" %}
 
-            <div class="container-fluid vh-100">
+            <div class="container-fluid my-5 d-flex flex-column justify-content-between h-100">
                 {% block body %}{% endblock %}
             </div>
 

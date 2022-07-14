@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Site;
 
 use App\Form\SearchToCalculateType;
 use App\Repository\ShopRepository;
@@ -12,6 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @Route("/on-line")
+ */
 class SiteController extends AbstractController
 {
      /**
@@ -27,7 +30,7 @@ class SiteController extends AbstractController
     }
 
     /**
-     * @Route("/calcul-distance/", name="app_site")
+     * @Route("/calcul-distance/", name="app_site_calcul_distance")
      */
     public function index(Security $security, Request $request, CgoService $cgoService, ShopRepository $shopRepository): Response
     {
@@ -51,6 +54,9 @@ class SiteController extends AbstractController
 
             }
 
+            //on tri le tableau en fonction de la distance la plus courte
+            array_multisort(array_column($datas, 'distance'), SORT_ASC, $datas);
+        
         }
 
         return $this->render('site/calcul_distance.html.twig', [
@@ -60,4 +66,5 @@ class SiteController extends AbstractController
             'shops' => $shops
         ]);
     }
+
 }

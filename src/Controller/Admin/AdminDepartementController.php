@@ -20,7 +20,7 @@ class AdminDepartementController extends AbstractController
      */
     public function index(DepartementRepository $departementRepository): Response
     {
-        return $this->render('departement/index.html.twig', [
+        return $this->render('site/departement/index.html.twig', [
             'departements' => $departementRepository->findAll(),
         ]);
     }
@@ -40,7 +40,7 @@ class AdminDepartementController extends AbstractController
             return $this->redirectToRoute('app_departement_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('departement/new.html.twig', [
+        return $this->renderForm('site/departement/new.html.twig', [
             'departement' => $departement,
             'form' => $form,
         ]);
@@ -51,7 +51,7 @@ class AdminDepartementController extends AbstractController
      */
     public function show(Departement $departement): Response
     {
-        return $this->render('departement/show.html.twig', [
+        return $this->render('site/departement/show.html.twig', [
             'departement' => $departement,
         ]);
     }
@@ -70,7 +70,7 @@ class AdminDepartementController extends AbstractController
             return $this->redirectToRoute('app_departement_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('departement/edit.html.twig', [
+        return $this->renderForm('site/departement/edit.html.twig', [
             'departement' => $departement,
             'form' => $form,
         ]);

@@ -7,7 +7,6 @@ use App\Repository\VilleRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class SearchToCalculateType extends AbstractType
@@ -16,6 +15,7 @@ class SearchToCalculateType extends AbstractType
     {
         $builder
             ->add('search', EntityType::class, [
+                'label' => false,
                 'class' => Ville::class,
                 'choice_label' => function (Ville $ville) {
                     return $ville->getName() . ' - ' . $ville->getPostalCode();
@@ -23,10 +23,7 @@ class SearchToCalculateType extends AbstractType
                 'query_builder' => function(VilleRepository $villeRepository) use ($options) {
                     return $villeRepository->findVillesByDepartementsFromCgo($options['cgo']);
                 },
-                'placeholder' => 'Choisir une ville...'
-            ])
-            ->add('submit', SubmitType::class, [
-                'label' => 'Calculer'
+                'placeholder' => 'Lieu de l\'intervention...'
             ])
         ;
     }

@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Site;
 
 use App\Entity\Cgo;
-use App\Form\CgoType;
+use App\Form\CgoDepartementType;
 use App\Repository\CgoRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Security;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * @Route("/cgo")
+ * @Route("/on-line/cgo")
  */
 class CgoController extends AbstractController
 {
@@ -21,29 +21,8 @@ class CgoController extends AbstractController
      */
     public function index(CgoRepository $cgoRepository): Response
     {
-        return $this->render('cgo/index.html.twig', [
+        return $this->render('site/cgo/index.html.twig', [
             'cgos' => $cgoRepository->findAll(),
-        ]);
-    }
-
-    /**
-     * @Route("/new", name="app_cgo_new", methods={"GET", "POST"})
-     */
-    public function new(Request $request, CgoRepository $cgoRepository): Response
-    {
-        $cgo = new Cgo();
-        $form = $this->createForm(CgoType::class, $cgo);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $cgoRepository->add($cgo, true);
-
-            return $this->redirectToRoute('app_cgo_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('cgo/new.html.twig', [
-            'cgo' => $cgo,
-            'form' => $form,
         ]);
     }
 
@@ -54,16 +33,16 @@ class CgoController extends AbstractController
     {
         $cgo = $security->getUser();
         
-        $form = $this->createForm(CgoType::class, $cgo);
+        $form = $this->createForm(CgoDepartementType::class, $cgo);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $cgoRepository->add($cgo, true);
 
-            return $this->redirectToRoute('app_cgo_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_dashboard', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('cgo/edit.html.twig', [
+        return $this->renderForm('site/cgo/edit.html.twig', [
             'cgo' => $cgo,
             'form' => $form,
         ]);

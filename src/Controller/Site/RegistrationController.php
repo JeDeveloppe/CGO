@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Site;
 
 use App\Entity\Cgo;
 use App\Form\RegistrationFormType;

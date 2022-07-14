@@ -6,6 +6,11 @@ body {
   background-attachment: fixed;
 }
 
+.table-distance {
+  background: rgb(253, 29, 29);
+  background: linear-gradient(0deg, rgb(253, 29, 29) 0%, rgb(253, 245, 29) 50%, rgb(126, 252, 69) 100%);
+}
+
 .logoTop {
   top: 0%;
   left: 50%;
@@ -89,7 +94,6 @@ body {
     transform: translate(-20%, -20%);
     width: 14%;
   }
-
   .navbar-expand {
     margin-top: 0;
   }

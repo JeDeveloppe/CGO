@@ -1,0 +1,13 @@
+{% extends 'site/base.html.twig' %}
+
+{% block title %}Edit Cgo{% endblock %}
+
+{% block body %}
+
+    <h1 class="col-12 text-center my-5 h1">Liste des départements rattachés au CGO</h1>
+
+    {{ include('site/cgo/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+
+    <a href="{{ path('app_dashboard') }}">Retour au tableau de bord</a>
+
+{% endblock %}

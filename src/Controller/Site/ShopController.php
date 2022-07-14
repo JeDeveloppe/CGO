@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Site;
 
 use App\Entity\Shop;
 use App\Form\ShopType;
@@ -12,18 +12,20 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
 
 /**
- * @Route("/shop")
+ * @Route("/on-line/shop")
  */
-class ShopController extends AbstractController
+class ShopController extends AbstractController 
 {
     /**
      * @Route("/", name="app_shop_index", methods={"GET"})
      */
-    public function index(ShopRepository $shopRepository): Response
+    public function index(ShopRepository $shopRepository, Security $security): Response
     {
 
-        return $this->render('shop/index.html.twig', [
-            'shops' => $shopRepository->findAll(),
+        $cgo = $security->getUser();
+
+        return $this->render('site/shop/index.html.twig', [
+            'shops' => $shopRepository->findBy(['cgo' => $cgo], ['name' => 'ASC']),
         ]);
     }
 
@@ -45,7 +47,7 @@ class ShopController extends AbstractController
             return $this->redirectToRoute('app_shop_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('shop/new.html.twig', [
+        return $this->renderForm('site/shop/new.html.twig', [
             'shop' => $shop,
             'form' => $form,
         ]);
@@ -56,7 +58,7 @@ class ShopController extends AbstractController
      */
     public function show(Shop $shop): Response
     {
-        return $this->render('shop/show.html.twig', [
+        return $this->render('site/shop/show.html.twig', [
             'shop' => $shop,
         ]);
     }
@@ -77,7 +79,7 @@ class ShopController extends AbstractController
             return $this->redirectToRoute('app_shop_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('shop/edit.html.twig', [
+        return $this->renderForm('site/shop/edit.html.twig', [
             'shop' => $shop,
             'form' => $form,
         ]);
