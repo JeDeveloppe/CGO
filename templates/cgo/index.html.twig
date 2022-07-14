@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cgo index{% endblock %}
+
+{% block body %}
+    <h1>Cgo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Password</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cgo in cgos %}
+            <tr>
+                <td>{{ cgo.id }}</td>
+                <td>{{ cgo.email }}</td>
+                <td>{{ cgo.roles ? cgo.roles|json_encode : '' }}</td>
+                <td>{{ cgo.password }}</td>
+                <td>{{ cgo.name }}</td>
+                <td>
+                    <a href="{{ path('app_cgo_show', {'id': cgo.id}) }}">show</a>
+                    <a href="{{ path('app_cgo_edit', {'id': cgo.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cgo_new') }}">Create new</a>
+{% endblock %}

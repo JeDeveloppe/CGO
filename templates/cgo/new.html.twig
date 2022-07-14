@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Cgo{% endblock %}
+
+{% block body %}
+    <h1>Create new Cgo</h1>
+
+    {{ include('cgo/_form.html.twig') }}
+
+    <a href="{{ path('app_cgo_index') }}">back to list</a>
+{% endblock %}
