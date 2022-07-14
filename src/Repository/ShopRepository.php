@@ -39,6 +39,15 @@ class ShopRepository extends ServiceEntityRepository
         }
     }
 
+    
+    public function findShopsByCgo($cgo)
+   {
+       return $this->createQueryBuilder('s')
+           ->where('s.cgo = :cgo')
+           ->setParameter('cgo', $cgo)
+           ->orderBy('s.name', 'ASC')
+       ;
+   }
 //    /**
 //     * @return Shop[] Returns an array of Shop objects
 //     */

@@ -27,6 +27,17 @@ class Shop
      */
     private $address;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="shops")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ville;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Cgo::class, inversedBy="shops")
+     */
+    private $cgo;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +63,30 @@ class Shop
     public function setAddress(string $address): self
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    public function getVille(): ?Ville
+    {
+        return $this->ville;
+    }
+
+    public function setVille(?Ville $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getCgo(): ?Cgo
+    {
+        return $this->cgo;
+    }
+
+    public function setCgo(?Cgo $cgo): self
+    {
+        $this->cgo = $cgo;
 
         return $this;
     }

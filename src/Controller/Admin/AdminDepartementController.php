@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/admin/departement")
  */
-class DepartementController extends AbstractController
+class AdminDepartementController extends AbstractController
 {
     /**
      * @Route("/", name="app_departement_index", methods={"GET"})

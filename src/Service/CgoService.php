@@ -2,22 +2,24 @@
 
 namespace App\Service;
 
+use App\Repository\VilleRepository;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class CgoService
 {
     private $client;
+    private $villeRepository;
 
     public function __construct(HttpClientInterface $client)
     {
         $this->client = $client;
     }
 
-    public function getFranceData(): array
+    public function getDistancesBeetweenDepannageAndShop($lieuDepannage, $shop): array
     {
         $response = $this->client->request(
             'GET',
-            'https://api.tomtom.com/routing/1/calculateRoute/52.50931,13.42936:52.50274,13.43872/json?key=CY0cA0IJXHBdI3e8kqVijtyRoxuV6ULL'
+            'https://api.tomtom.com/routing/1/calculateRoute/'.$lieuDepannage->getLat().','.$lieuDepannage->getLng().':'.$shop->getVille()->getLat().','.$shop->getVille()->getLng().'/json?key=CY0cA0IJXHBdI3e8kqVijtyRoxuV6ULL'
         );
 
         return $response->toArray();
