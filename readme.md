@@ -1,14 +1,10 @@
-# git clone
+# CGO HELPER
+## _A Helper for CGO_
 
-# composer update
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-# add .env.prod
-    # DATABASE CONNEXION
-    DATABASE_USER=user
-    DATABASE_PASSWORD=password
-    DATABASE_NAME=name
+## Features
 
-    DATABASE_URL=mysql://${DATABASE_USER}:${DATABASE_PASSWORD}@127.0.0.1:8889/${DATABASE_NAME}?serverVersion=5.7&charset=utf8mb4
-    # END DATABASE CONNEXION
-
-# bdd
+- git clone
+- composer update
+- duplicate .env.dev in .env.prod and add news values
