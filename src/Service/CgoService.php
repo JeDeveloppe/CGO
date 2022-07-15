@@ -26,6 +26,7 @@ class CgoService
         $array_reponse = $response->toArray();
 
         $filtredResponse = [
+            'shop'     => $shop,
             'distance' => $array_reponse['routes'][0]['summary']['lengthInMeters'],
             'duration' => $array_reponse['routes'][0]['summary']['travelTimeInSeconds']
         ];

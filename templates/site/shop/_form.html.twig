@@ -1,4 +1,20 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="col-6 mx-auto text-center">
+
+    {{ form_start(form) }}
+        <div class="form-group mb-3">
+            <label for="name">Nom:</label>
+            {{ form_row(form.name) }}
+        </div>
+        <div class="form-group mb-3">
+            <label for="name">Adresse compléte du centre:</label>
+            {{ form_row(form.address) }}
+            <small id="emailAddress" class="form-text text-muted">Aucune incidance sur les recherches...</small>
+        </div>
+        <div class="form-group mb-3">
+            <label for="name">Ville:</label>
+            {{ form_row(form.ville) }}
+        </div>
+        <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+
+    {{ form_end(form) }}
+</div>

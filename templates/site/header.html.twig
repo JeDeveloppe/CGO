@@ -1,0 +1,20 @@
+<header class="col-12 mt-1 d-flex flex-wrap">
+    <div class="col-3">
+        <a class="col-12 ps-1" href="{{ path('app_dashboard') }}">
+            <img src="{{ asset('images/design/logo.png') }}" class="logoTop border border-primary" alt="Logo Refaitesvosjeux.fr">
+        </a>
+    </div>
+    <div class="col-9 d-flex flex-wrap justify-content-end align-items-start">
+        {% if app.user %}
+            <a class="btn btn-lg btn-outline-dark m-2" href="{{ path('app_cgo_edit') }}">Gérer les départements</a>
+            <a class="btn btn-lg btn-outline-dark m-2" href="{{ path('app_shop_index') }}">Gérer les centres</a>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a class="btn btn-lg btn-outline-dark m-2" href="{{ path('app_register') }}">Gérer les inscriptions</a>
+                    <a class="btn btn-lg btn-outline-dark m-2" href="{{ path('app_shop_index') }}">Administration</a>
+                {% endif %}
+            <a class="btn btn-lg btn-outline-dark m-2" href="{{ path('app_logout') }}">Déconnexion</a>
+        {% else %}
+            <a class="btn btn-lg btn-outline-dark m-2" href="{{ path('app_login') }}">Connexion</a>
+        {% endif %}
+    </div>
+</header>

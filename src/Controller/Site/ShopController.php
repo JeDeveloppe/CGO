@@ -54,16 +54,6 @@ class ShopController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_shop_show", methods={"GET"})
-     */
-    public function show(Shop $shop): Response
-    {
-        return $this->render('site/shop/show.html.twig', [
-            'shop' => $shop,
-        ]);
-    }
-
-    /**
      * @Route("/{id}/edit", name="app_shop_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Shop $shop, ShopRepository $shopRepository, Security $security): Response
@@ -86,7 +76,7 @@ class ShopController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_shop_delete", methods={"POST"})
+     * @Route("/delete/{id}", name="app_shop_delete", methods={"POST"})
      */
     public function delete(Request $request, Shop $shop, ShopRepository $shopRepository): Response
     {

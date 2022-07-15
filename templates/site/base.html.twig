@@ -15,29 +15,27 @@
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
-    <body class="p-5">
-        <section class="card p-0 d-flex flex-column">
-            <div class="col-12">
+    <body>
+            {# <div class="col-12">
                 <a class="col-6" href="{{ path('app_dashboard') }}">
                     <img src="{{ asset('images/design/logo.png') }}" class="position-absolute logoTop img-thumbnail border border-primary" alt="Logo Refaitesvosjeux.fr">
                 </a>
-            </div>
+            </div> #}
 
-            {% include "site/nav.html.twig" %}
+            {% include "site/header.html.twig" %}
 
-            <div class="container-fluid my-5 d-flex flex-column justify-content-between h-100">
+            <div class="container-fluid p-5 mb-5 d-flex flex-column justify-content-around">
                 {% block body %}{% endblock %}
             </div>
 
             {% include "site/footer.html.twig" %}
 
-        </section>
-    {% block javascripts %}
-        <script type="text/javascript">
-            $(function () {
-                $('[data-toggle="tooltip"]').tooltip()
-            })
-        </script>
-    {% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript">
+                $(function () {
+                    $('[data-toggle="tooltip"]').tooltip()
+                })
+            </script>
+        {% endblock %}
     </body>
 </html>

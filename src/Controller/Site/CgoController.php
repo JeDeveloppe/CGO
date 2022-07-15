@@ -17,16 +17,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CgoController extends AbstractController
 {
     /**
-     * @Route("/", name="app_cgo_index", methods={"GET"})
-     */
-    public function index(CgoRepository $cgoRepository): Response
-    {
-        return $this->render('site/cgo/index.html.twig', [
-            'cgos' => $cgoRepository->findAll(),
-        ]);
-    }
-
-    /**
      * @Route("/edit", name="app_cgo_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, CgoRepository $cgoRepository, Security $security): Response
@@ -48,15 +38,4 @@ class CgoController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="app_cgo_delete", methods={"POST"})
-     */
-    public function delete(Request $request, Cgo $cgo, CgoRepository $cgoRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$cgo->getId(), $request->request->get('_token'))) {
-            $cgoRepository->remove($cgo, true);
-        }
-
-        return $this->redirectToRoute('app_cgo_index', [], Response::HTTP_SEE_OTHER);
-    }
 }

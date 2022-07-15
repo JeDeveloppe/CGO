@@ -3,9 +3,13 @@
 {% block title %}New Shop{% endblock %}
 
 {% block body %}
-    <h1>Create new Shop</h1>
+    <h1 class="col-12 text-center h3">Attacher un nouveau centre</h1>
 
+    <div class="col-12">
+        <a class="btn btn-info" href="{{ path('app_shop_index') }}">Retour à la liste</a>
+    </div>
+    
     {{ include('site/shop/_form.html.twig') }}
 
-    <a href="{{ path('app_shop_index') }}">back to list</a>
+
 {% endblock %}

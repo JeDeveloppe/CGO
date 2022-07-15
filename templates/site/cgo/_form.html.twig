@@ -2,8 +2,8 @@
 
     <div class="row justify-content-start">
         {% for departement in form.departements %}
-                <div class="form-check col-3 p-2 text-center">
-                        Département: {{ form_label(departement) }}
+                <div class="form-check col-4 col-md-3 col-lg-2 p-2 text-center">
+                        Dépt: {{ form_label(departement) }}
                         {{ form_widget(departement) }}
                     </label>
                 </div>
