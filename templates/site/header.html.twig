@@ -9,8 +9,7 @@
             <a class="btn btn-lg btn-outline-dark m-2" href="{{ path('app_cgo_edit') }}">Gérer les départements</a>
             <a class="btn btn-lg btn-outline-dark m-2" href="{{ path('app_shop_index') }}">Gérer les centres</a>
                 {% if is_granted('ROLE_ADMIN') %}
-                    <a class="btn btn-lg btn-outline-dark m-2" href="{{ path('app_register') }}">Gérer les inscriptions</a>
-                    <a class="btn btn-lg btn-outline-dark m-2" href="{{ path('app_shop_index') }}">Administration</a>
+                    <a class="btn btn-lg btn-outline-dark m-2" href="{{ path('app_admin') }}">Administration</a>
                 {% endif %}
             <a class="btn btn-lg btn-outline-dark m-2" href="{{ path('app_logout') }}">Déconnexion</a>
         {% else %}

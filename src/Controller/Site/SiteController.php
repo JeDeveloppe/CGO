@@ -54,12 +54,8 @@ class SiteController extends AbstractController
 
             }
 
-            dump($datas);
-
             //on tri le tableau en fonction de la distance la plus courte
             array_multisort(array_column($datas, 'distance'), SORT_ASC, $datas);
-
-            dump($datas);
         
         }
 

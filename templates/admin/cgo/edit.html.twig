@@ -1,0 +1,14 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Édition d'un CGO{% endblock %}
+
+{% block body %}
+
+    <h1 class="col-12 text-center h3">Édition d'un CGO</h1>
+
+    {{ include('admin/cgo/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_admin_cgo_index') }}">back to list</a>
+
+    {{ include('admin/cgo/_delete_form.html.twig') }}
+{% endblock %}

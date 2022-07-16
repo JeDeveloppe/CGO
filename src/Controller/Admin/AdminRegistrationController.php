@@ -17,7 +17,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class AdminRegistrationController extends AbstractController
 {
     /**
-     * @Route("/admin/register", name="app_register")
+     * @Route("/admin/register", name="app_admin_register")
      */
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, CgoAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {

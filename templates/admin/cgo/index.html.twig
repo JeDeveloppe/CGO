@@ -1,0 +1,41 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Liste des CGO en BDD{% endblock %}
+
+{% block body %}
+
+    <h1 class="col-12 text-center h3">Liste des CGO en BDD</h1>
+
+    <div class="col-12 my-5">
+        <a class="btn btn-info" href="{{ path('app_admin_register') }}">Créer un nouveau CGO +</a>
+    </div>
+
+    <table class="table table-striped text-center align-middle">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Roles</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cgo in cgos %}
+            <tr>
+                <td>{{ cgo.name }}</td>
+                <td>{{ cgo.email }}</td>
+                <td>{{ '* * * * * * * * * *' }}</td>
+                <td>{{ cgo.roles ? cgo.roles|json_encode : '' }}</td>
+                <td>
+                    <a class="btn btn-warning" href="{{ path('app_admin_cgo_edit', {'id': cgo.id}) }}">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun CGO dans la BDD...</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<title>Cgo</title>
+
+{% block body %}
+    <h1>Cgo</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cgo.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ cgo.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ cgo.roles ? cgo.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ cgo.password }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ cgo.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cgo_index') }}">back to list</a>
+
+    <a href="{{ path('app_cgo_edit', {'id': cgo.id}) }}">edit</a>
+
+    {{ include('cgo/_delete_form.html.twig') }}
+{% endblock %}

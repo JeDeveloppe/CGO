@@ -1,0 +1,21 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Tableau de bord{% endblock %}
+
+{% block body %}
+    
+    <h1 class="col-12 text-center my-5 h3">Tableau de bord [ADMINISTRATION]</h1>
+
+    <div class="row justify-content-around">
+        <div class="col-4 d-flex justify-content-center align-items-center p-5">
+            <a class="btn btn-lg btn-outline-dark m-2" href="{{ path('app_admin_cgo_index') }}">Gérer les CGOs</a>
+        </div>
+        <div class="col-4 d-flex justify-content-center align-items-center p-5">
+            <a class="btn btn-lg btn-outline-dark m-2" href="#">Gérer les départements</a>
+        </div>
+        <div class="col-4 d-flex justify-content-center align-items-center p-5">
+            <a class="btn btn-lg btn-outline-dark m-2" href="#">Gérer les villes</a>
+        </div>
+    </div>  
+
+{% endblock %}

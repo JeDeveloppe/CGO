@@ -1,0 +1,12 @@
+<header class="col-12 mt-1 d-flex flex-wrap">
+    <div class="col-3">
+        <a class="col-12 ps-1" href="{{ path('app_dashboard') }}">
+            <img src="{{ asset('images/design/logo.png') }}" class="logoTop border border-primary" alt="Logo Refaitesvosjeux.fr">
+        </a>
+    </div>
+    <div class="col-9 d-flex flex-wrap justify-content-end align-items-start">
+        {% if app.user %}
+            <a class="btn btn-lg btn-info m-2" href="{{ path('app_dashboard') }}">Quitter l'administration</a>
+        {% endif %}
+    </div>
+</header>

@@ -9,16 +9,16 @@
     <div class="row justify-content-around">
         <div class="col-12 col-lg-5 p-0">
             <div class="card col-12 text-center py-5 border-primary p-0">
-                <div class="form-group">
-                    {# on affiche le formulaire #}
-                    {{ form_start(form) }}
+                {# on affiche le formulaire #}
+                {{ form_start(form) }}
+                    <div class="form-group">
                         {{ form_row(form.search) }}
                         <div class="col-12 p-0 text-center mt-2">
                             <button class="btn btn-lg btn-success" type="submit">Calculer</button>
                             <a class="btn btn-lg btn-warning" href="{{ path('app_site_calcul_distance') }}">Reset</a>
                         </div>
-                    {{ form_end(form) }}
-                </div>
+                    </div>
+                {{ form_end(form) }}
             </div>
         </div>
         <div class="col-12 col-lg-6 mt-3 mt-lg-0">
