@@ -1,0 +1,4 @@
+# Pour tous les robots interdiction de scroller les dossiers suivant
+
+User-agent: *
+    Disallow: /
