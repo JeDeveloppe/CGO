@@ -8,3 +8,5 @@
 - git clone
 - composer update
 - duplicate .env.dev in .env.prod and add news values
+- d:m:m
+- register first user et in database set ROLE_ADMIN
