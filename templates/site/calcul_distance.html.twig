@@ -1,10 +1,10 @@
 {% extends 'site/base.html.twig' %}
 
-{% block title %}Hello SiteController!{% endblock %}
+{% block title %}Calcul des distances{% endblock %}
 
 {% block body %}
     
-    <h1 class="col-12 text-center h3 mb-5">Calculs distances</h1>
+    <h1 class="col-12 text-center h3 mb-5">Calcul des distances</h1>
 
     <div class="row justify-content-around">
         <div class="col-12 col-lg-5 p-0">
@@ -31,7 +31,7 @@
                             <th>Distance</th>
                             <th>Temps de trajet</th>
                         </thead>
-                        <tbody class="table-distance text-light">
+                        <tbody class="table-distance">
                             {% for data in datas %}
                                 {% set dureeEnSecondes = data.duration %}
                                 {% set hours = (dureeEnSecondes / 3600) %60 | round %}
@@ -51,7 +51,7 @@
                     </table>
                 </div>
             {% else %}
-                <div class="card col-12 text-center d-flex flex-column justify-content-around border-primary h-100">
+                <div class="card col-12 text-center text-black d-flex flex-column justify-content-around border-primary h-100">
                 En attente du lieu d'intervention...
                 </div>
             {% endif %}

@@ -1,13 +1,13 @@
 {% extends 'site/base.html.twig' %}
 
-{% block title %}Edit Shop{% endblock %}
+{% block title %}Édition d'un centre{% endblock %}
 
 {% block body %}
-    <h1>Edit Shop</h1>
+    <h1 class="col-12 text-center h3">Édition d'un centre</h1>
 
-    {{ include('site/shop/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('site/shop/_form.html.twig', {'button_label': 'Enregistrer'}) }}
 
-    <a href="{{ path('app_shop_index') }}">back to list</a>
+    <a class="btn btn-outline-warning" href="{{ path('app_shop_index') }}">Retour à la liste des centres</a>
 
     {{ include('site/shop/_delete_form.html.twig') }}
 {% endblock %}
