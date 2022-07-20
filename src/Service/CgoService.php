@@ -1,14 +1,12 @@
-<?
+<?php
 
 namespace App\Service;
 
-use App\Repository\VilleRepository;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class CgoService
 {
     private $client;
-    private $villeRepository;
 
     public function __construct(HttpClientInterface $client)
     {
